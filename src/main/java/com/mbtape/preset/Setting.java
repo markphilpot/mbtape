@@ -12,21 +12,21 @@ public class Setting implements PresetComponent
     public enum Value
     {
         v00((byte) 0x00),
-        v10((byte) 0x00),
-        v20((byte) 0x00),
-        v30((byte) 0x00),
-        v35((byte) 0x00),
-        v40((byte) 0x00),
-        v45((byte) 0x00),
-        v50((byte) 0x00),
-        v55((byte) 0x00),
-        v60((byte) 0x00),
-        v65((byte) 0x00),
-        v70((byte) 0x00),
-        v75((byte) 0x00),
-        v80((byte) 0x00),
-        v90((byte) 0x00),
-        v100((byte) 0x00);
+        v10((byte) 0x01),
+        v20((byte) 0x02),
+        v30((byte) 0x03),
+        v35((byte) 0x04),
+        v40((byte) 0x05),
+        v45((byte) 0x06),
+        v50((byte) 0x07),
+        v55((byte) 0x08),
+        v60((byte) 0x09),
+        v65((byte) 0x0A),
+        v70((byte) 0x0B),
+        v75((byte) 0x0C),
+        v80((byte) 0x0D),
+        v90((byte) 0x0E),
+        v100((byte) 0x0F);
 
         byte value;
 
