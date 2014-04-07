@@ -28,22 +28,35 @@ public class Fx implements PresetComponent
         }
     }
 
-    private byte fx;
+    private Switch fx;
 
     public Fx()
     {
-        fx = Switch.OFF.getValue();
+        fx = Switch.OFF;
     }
 
     public void setFx(Switch f)
     {
-        fx = f.getValue();
+        fx = f;
     }
+
+    public Switch getFx()
+    {
+        return fx;
+    }
+
 
     @Override
     public void init(byte[] preset)
     {
-        fx = (byte)(preset[OFFSET] & 0x01);
+        if( (byte)(preset[OFFSET] & 0x01) == 0x01 )
+        {
+            fx = Switch.ON;
+        }
+        else
+        {
+            fx = Switch.OFF;
+        }
     }
 
     @Override
@@ -51,6 +64,6 @@ public class Fx implements PresetComponent
     {
         preset[OFFSET] &= 0xFE;
 
-        preset[OFFSET] |= fx;
+        preset[OFFSET] |= fx.getValue();
     }
 }

@@ -36,27 +36,38 @@ public class Tube implements PresetComponent
         }
     }
 
-    private byte tube;
+    private TubeSetting tube;
 
     public Tube()
     {
-        tube = TubeSetting.RHYTHM_GREEN.getValue();
+        tube = TubeSetting.RHYTHM_GREEN;
     }
 
     public void setTube(TubeSetting setting)
     {
-        tube = setting.getValue();
+        tube = setting;
+    }
+
+    public TubeSetting getTube()
+    {
+        return tube;
     }
 
     @Override
     public void init(byte[] preset)
     {
-        tube = preset[OFFSET];
+        for(TubeSetting ts : TubeSetting.values())
+        {
+            if(preset[OFFSET] == ts.getValue())
+            {
+                tube = ts;
+            }
+        }
     }
 
     @Override
     public void compile(byte[] preset)
     {
-        preset[OFFSET] = tube;
+        preset[OFFSET] = tube.getValue();
     }
 }

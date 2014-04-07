@@ -12,7 +12,7 @@ public class Program
 
     public static final int    NUM_BYTES = 1;
 
-    private byte program;
+    private int program;
 
     public Program()
     {
@@ -21,13 +21,13 @@ public class Program
 
     public Program(int preset)
     {
-        program = (byte) preset;
+        program = preset;
     }
 
     public byte[] getProgram()
     {
         byte[] p = new byte[NUM_BYTES];
-        p[0] = program;
+        p[0] = (byte) program;
         return p;
     }
 
@@ -36,6 +36,6 @@ public class Program
         if(preset < 0 || preset >= TriAxis.NUM_PRESETS)
             throw new RuntimeException(String.format("Illegal Preset Value :: %d", preset));
 
-        this.program = (byte)preset;
+        this.program = preset;
     }
 }

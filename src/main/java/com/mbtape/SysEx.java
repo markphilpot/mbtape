@@ -6,6 +6,7 @@ import com.mbtape.program.Program;
 import org.apache.log4j.Logger;
 
 import java.nio.ByteBuffer;
+import java.util.Arrays;
 
 /**
  * Created by mphilpot on 4/6/14.
@@ -44,6 +45,16 @@ public class SysEx
         {
             programs[i] = new Program(i % TriAxis.NUM_PRESETS);
         }
+    }
+
+    public Preset[] getPresets()
+    {
+        return presets;
+    }
+
+    public Program[] getPrograms()
+    {
+        return programs;
     }
 
     public void init(byte[] buffer)
@@ -90,5 +101,18 @@ public class SysEx
     public byte[] getSysEx()
     {
         return sysEx;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "SysEx{" +
+                "sysEx=" + Arrays.toString(sysEx) +
+                ", preamble=" + Arrays.toString(preamble) +
+                ", presets=" + Arrays.toString(presets) +
+                ", programs=" + Arrays.toString(programs) +
+                ", controllers=" + Arrays.toString(controllers) +
+                ", terminator=" + Arrays.toString(terminator) +
+                '}';
     }
 }
