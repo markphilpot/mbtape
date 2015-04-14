@@ -68,7 +68,6 @@ public class Setting implements PresetComponent
         return value;
     }
 
-    @Override
     public void init(byte[] preset)
     {
         for(Value v : Value.values())
@@ -80,7 +79,6 @@ public class Setting implements PresetComponent
         }
     }
 
-    @Override
     public void compile(byte[] preset)
     {
         preset[offset] = value.getValue();

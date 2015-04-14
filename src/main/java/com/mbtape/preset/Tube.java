@@ -53,7 +53,6 @@ public class Tube implements PresetComponent
         return tube;
     }
 
-    @Override
     public void init(byte[] preset)
     {
         for(TubeSetting ts : TubeSetting.values())
@@ -65,7 +64,6 @@ public class Tube implements PresetComponent
         }
     }
 
-    @Override
     public void compile(byte[] preset)
     {
         preset[OFFSET] = tube.getValue();

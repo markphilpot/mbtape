@@ -63,21 +63,19 @@ public class Switches implements PresetComponent
         switches[s.getIndex()] = null;
     }
 
-    @Override
     public void init(byte[] preset)
     {
         byte s = (byte)(preset[OFFSET] & 0xFE);
 
         for(Switch sw : Switch.values())
         {
-            if(s == sw.getValue())
+            if((s & sw.getValue()) == sw.getValue())
             {
                 switches[sw.getIndex()] = sw;
             }
         }
     }
 
-    @Override
     public void compile(byte[] preset)
     {
         preset[OFFSET] &= 0x01;

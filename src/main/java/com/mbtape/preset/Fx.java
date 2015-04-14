@@ -45,8 +45,6 @@ public class Fx implements PresetComponent
         return fx;
     }
 
-
-    @Override
     public void init(byte[] preset)
     {
         if( (byte)(preset[OFFSET] & 0x01) == 0x01 )
@@ -59,7 +57,6 @@ public class Fx implements PresetComponent
         }
     }
 
-    @Override
     public void compile(byte[] preset)
     {
         preset[OFFSET] &= 0xFE;
